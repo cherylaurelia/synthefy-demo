@@ -1,0 +1,80 @@
+[
+ {
+  "id": "101004578597",
+  "requested": "2026-08-07 08:32",
+  "service": "Damage Property",
+  "subtype": "traffic_signal",
+  "neighborhood": "Chinatown",
+  "source": "Mobile",
+  "actual_days": 6.02,
+  "capped": false,
+  "q10": 0.61,
+  "q50": 2.98,
+  "q90": 8.67
+ },
+ {
+  "id": "101004623215",
+  "requested": "2026-08-14 09:28",
+  "service": "Graffiti Public",
+  "subtype": "not_offensive",
+  "neighborhood": "Mission",
+  "source": "Web",
+  "actual_days": 3.14,
+  "capped": false,
+  "q10": 0.12,
+  "q50": 7.38,
+  "q90": 76.52
+ },
+ {
+  "id": "101004561012",
+  "requested": "2026-08-04 12:01",
+  "service": "Graffiti Public",
+  "subtype": "not_offensive",
+  "neighborhood": "Castro/Upper Market",
+  "source": "Web",
+  "actual_days": 2.9,
+  "capped": false,
+  "q10": 0.07,
+  "q50": 1.71,
+  "q90": 89.74
+ },
+ {
+  "id": "101004563072",
+  "requested": "2026-08-04 15:57",
+  "service": "Tree Maintenance",
+  "subtype": "damaged_tree",
+  "neighborhood": "Mission",
+  "source": "Phone",
+  "actual_days": 90.0,
+  "capped": true,
+  "q10": 0.11,
+  "q50": 88.09,
+  "q90": 91.31
+ },
+ {
+  "id": "101004611513",
+  "requested": "2026-08-12 12:12",
+  "service": "Litter Receptacle Maintenance",
+  "subtype": "other_including_abandoned_toter",
+  "neighborhood": "Hayes Valley",
+  "source": "Phone",
+  "actual_days": 1.01,
+  "capped": false,
+  "q10": 0.61,
+  "q50": 0.93,
+  "q90": 2.5
+ },
+ {
+  "id": "101004577420",
+  "requested": "2026-08-06 20:54",
+  "service": "Streetlights",
+  "subtype": "light",
+  "neighborhood": "Bayview Hunters Point",
+  "source": "Phone",
+  "actual_days": 0.6,
+  "capped": false,
+  "q10": 0.43,
+  "q50": 1.72,
+  "q90": 6.56
+ }
+]

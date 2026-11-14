@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Colors and fonts from synthefy.com's CSS: cream/stone surfaces, ink #243740, orange #EA7436 /
+   #CE602A, Inter for text, Playfair Display for headings. */
+@theme {
+  --color-bg: #fcfbf8;
+  --color-stone: #eeece6;
+  --color-surface: #ffffff;
+  --color-ink: #243740;
+  --color-muted: #52605f;
+  --color-line: #e2ddd3;
+  --color-orange: #ea7436;
+  --color-orange-deep: #b04f20;
+  --color-orange-soft: #fbeadf;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
