@@ -78,7 +78,15 @@ export default function Home() {
         </a>
       </div>
 
-      <section className="mt-10 grid gap-3 sm:grid-cols-3">
+      <p className="mt-8 rounded-xl border-l-4 border-orange bg-orange-soft p-4 text-sm leading-relaxed">
+        <strong>This is about intervals, not accuracy.</strong> The median prediction barely changes between methods: its mean
+        absolute error is {maeNori.min.toFixed(1)} to {maeNori.max.toFixed(1)} days for Nori and {maeTable.min.toFixed(1)} to{" "}
+        {maeTable.max.toFixed(1)} days for a plain lookup table at every size (the tuned GBM ranges from{" "}
+        {maeGbm.min.toFixed(1)} to {maeGbm.max.toFixed(1)}, worst with few rows).
+        The difference is how sharp and how honest the 10th to 90th percentile band is.
+      </p>
+
+      <section className="mt-6 grid gap-3 sm:grid-cols-3">
         <div className="rounded-xl bg-stone p-4">
           <p className="text-3xl font-semibold">
             {won.length}/{ns.length}
@@ -88,7 +96,8 @@ export default function Home() {
         <div className="rounded-xl bg-stone p-4">
           <p className="text-3xl font-semibold">{matchAll === undefined ? "–" : fmtN(matchAll)}</p>
           <p className="mt-1 text-sm text-muted">
-            rows Nori needed to beat a CV-tuned gradient-boosting model fit on all {fmtN(maxN)}
+            rows of context at which Nori matched a CV-tuned gradient-boosting model fit on all {fmtN(maxN)} (a tie, not a
+            win)
           </p>
         </div>
         <div className="rounded-xl bg-stone p-4">
@@ -101,13 +110,6 @@ export default function Home() {
         </div>
       </section>
 
-      <p className="mt-6 rounded-xl border-l-4 border-orange bg-orange-soft p-4 text-sm leading-relaxed">
-        <strong>This is about intervals, not accuracy.</strong> The median prediction barely changes between methods: its mean
-        absolute error is {maeNori.min.toFixed(1)} to {maeNori.max.toFixed(1)} days for Nori and {maeTable.min.toFixed(1)} to{" "}
-        {maeTable.max.toFixed(1)} days for a plain lookup table at every size (the tuned GBM ranges from{" "}
-        {maeGbm.min.toFixed(1)} to {maeGbm.max.toFixed(1)}, worst with few rows).
-        The difference is how sharp and how honest the 10th to 90th percentile band is.
-      </p>
 
       <section className="mt-10 grid gap-6">
         <LineChart
@@ -148,10 +150,11 @@ export default function Home() {
           </li>
           <li>
             <strong>Doesn&apos;t quite:</strong> Nori&apos;s raw 80% band covered {pct(noriCov.min)} to {pct(noriCov.max)}, not
-            80%. The test window is a later fortnight than the context, so some of that is drift. Wrapping Nori in the same
+            80%. The test window is a later fortnight than the context. Wrapping Nori in the same
             5-fold conformal step barely moved it ({pct(noriCcCov.min)} to {pct(noriCcCov.max)}): the margin it learned from
             July rows came out close to zero, so within July Nori&apos;s bands were already about right. The shortfall shows up
-            only on the later fortnight, which points to drift that no calibration on July rows can see.
+            only on the later fortnight, which is consistent with drift. With one test window I can&apos;t rule out plain
+            miscalibration.
           </li>
           <li>
             <strong>Baseline to beat:</strong> a per-category lookup table covers {pct(tableCov.min)} to{" "}
